@@ -1,0 +1,2 @@
+# Notion2GoogleDriver
+把Notion里的内容自动抓取到GoogleDriver，确保是最新的mirror
