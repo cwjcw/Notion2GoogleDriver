@@ -5,8 +5,9 @@
 
 1. 安装依赖：`pip install -r requirements.txt`
 2. 配置 `.env`（参考 `.env.example`）
-3. 先本地生成镜像（不推送到 Google Drive）：`python sync_notion_to_gdrive.py --no-rclone`
-4. 推送到 Google Drive（会做 mirror 同步）：`python sync_notion_to_gdrive.py`
+3. 增量构建镜像（不推送到 Google Drive）：`python sync_notion_to_gdrive.py --no-rclone`
+4. 增量构建并推送到 Google Drive（会做 mirror 同步）：`python sync_notion_to_gdrive.py`
+5. 全量重建并推送到 Google Drive：`python sync_notion_to_gdrive.py --full-rebuild`
 
 ## rclone 用法
 
@@ -28,7 +29,13 @@
    - `RCLONE_EXE=rclone`
    - `RCLONE_REMOTE=gdrive`
    - `RCLONE_DEST_FOLDER=notion`
-4. 运行同步：`python3 sync_notion_to_gdrive.py`
+4. 运行同步：`python sync_notion_to_gdrive.py`
+
+## 全量/增量运行命令
+
+- 增量构建（不推送）：`python sync_notion_to_gdrive.py --no-rclone`
+- 增量构建并同步到 Google Drive：`python sync_notion_to_gdrive.py`
+- 全量重建并同步到 Google Drive：`python sync_notion_to_gdrive.py --full-rebuild`
 
 
 同步日志在：`logs\\sync_YYYYMMDD.log`
